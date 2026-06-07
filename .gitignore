@@ -1,0 +1,30 @@
+# Gradle
+/local.properties
+**/.gradle/
+**/build/
+**/out/
+**/classes/
+
+# Eclipse
+**/*.launch
+**/.factorypath
+
+# Idea
+**/.idea/
+**/*.iml
+**/*.ipr
+**/*.iws
+
+# vscode
+**/.settings/
+**/.vscode/
+**/bin/
+**/.classpath
+**/.project
+
+# zed
+**/.zed/
+
+# Modding
+**/.architectury-transformer/
+**/run/

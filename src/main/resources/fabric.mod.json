@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "${mod_id}",
+	"name": "${mod_name}",
+	"version": "${mod_version}",
+	"license": "GPL-3.0-or-later",
+	"environment": "*",
+	"icon": "icon.png",
+
+	"description": "${mod_description_esc}",
+
+	"authors": [ ${mod_authors_jarray} ],
+	"contributors": [ ${mod_contributors_jarray} ],
+
+	"contact": {
+		"homepage": "${contact_homepage}",
+		"sources": "${contact_sources}",
+		"issues": "${contact_issues}",
+		"email": "${contact_email}"
+	},
+
+	"entrypoints": {
+		"main": [ "me.afk.entrypoints.FabricClientModInitializer" ]
+
+	},
+	
+	"mixins": [
+		"${mod_id}.mixins.json"
+	],
+
+	"depends": {
+		"minecraft": "${mc_version_range}"
+	},
+	"recommends": {
+		"fabricloader": ">=0.4.0"
+	}
+}

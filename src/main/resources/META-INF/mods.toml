@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "*"
+license = "GNU General Public License 3.0, https://www.gnu.org/licenses/gpl-3.0.en.html"
+issueTrackerURL = "${contact_issues}"
+
+[[mods]]
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+authors = "${mod_authors}"
+description = """
+${mod_description}
+"""
+credits = """
+Created by ${mod_authors}
+Contributors:
+${mod_contributors_list}
+"""
+logoFile = "icon.png"
+logoBlur = false
+updateJSONURL = "${mod_forgeupdatecheckurl}"
+
+[[mixins]]
+config = "${mod_id}.mixins.json"
+
+[[dependencies.${mod_id}]]
+modId = "minecraft"
+versionRange = "${mc_version_range}"
+mandatory = true
