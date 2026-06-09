@@ -13,8 +13,10 @@
 </p>
 
 ## Features
-- TPA Command: no need to be target player accpet. it will tp directly like vanilla tp command.
-- Maybe, will add back command for tp to last death point? maybe? maybe? maybe?
+- **TPA Command**: no need to be accepted by target player. it will teleport to player directly.
+> USAGE: ```/tpa <player>```
+
+- **Back**: Coming soon.
 
 ## AND
 * This mod modify from CameraOverhaul Mod.
