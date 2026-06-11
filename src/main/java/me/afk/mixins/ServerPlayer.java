@@ -73,6 +73,8 @@ public abstract class ServerPlayer extends Player implements IServerPlayerDeathI
     private void saveDeathInfoToNbt(CompoundTag tag, CallbackInfo ci) {
         DeathInfo info = this.getDeathInfo$tpamm();
         CompoundTag deathTag = new CompoundTag();
+        if (info == null) return;
+
         // save dimension
         ResourceLocation.CODEC.encodeStart(NbtOps.INSTANCE, info.level().dimension().location())
                 .result()
