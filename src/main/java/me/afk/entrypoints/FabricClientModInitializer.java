@@ -6,6 +6,7 @@
 /*package me.afk.entrypoints;
 
 
+import me.afk.command.BackCommand;
 import me.afk.command.TpaCommand;
 import net.fabricmc.api.*;
 
@@ -18,6 +19,7 @@ public class FabricClientModInitializer implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		TpaCommand.register();
+		BackCommand.register();
 	}
 }
 *///?}

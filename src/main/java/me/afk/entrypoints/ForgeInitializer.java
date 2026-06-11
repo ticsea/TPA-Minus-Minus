@@ -3,9 +3,10 @@
 // See LICENSE.md for details.
 
 //? if FORGE {
-/*package me.afk.entrypoints;
+package me.afk.entrypoints;
 
 import me.afk.Tpamm;
+import me.afk.command.BackCommand;
 import me.afk.command.TpaCommand;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,8 +15,8 @@ import net.minecraftforge.fml.common.*;
 //? if >=1.18.0 {
 import net.minecraftforge.client.*;
 //?} else {
-/^import net.minecraftforge.fmlclient.*;
-^///?}
+/*import net.minecraftforge.fmlclient.*;
+*///?}
 
 @Mod(Tpamm.MOD_ID)
 @SuppressWarnings("unused")
@@ -29,14 +30,15 @@ public class ForgeInitializer {
 			() -> new ConfigScreenHandler.ConfigScreenFactory((mc, parentScreen) -> null)
 		);
 		//?} else {
-		/^ModLoadingContext.get().registerExtensionPoint(
+		/*ModLoadingContext.get().registerExtensionPoint(
 			ConfigGuiHandler.ConfigGuiFactory.class,
 			() -> new ConfigGuiHandler.ConfigGuiFactory((mc, parentScreen) -> ConfigScreen.getConfigScreen(parentScreen))
 		);
-		^///?}
+		*///?}
 
 		IEventBus eventBus = MinecraftForge.EVENT_BUS;
 		eventBus.addListener(TpaCommand::onRegisterCommands);
+		eventBus.addListener(BackCommand::onRegisterCommands);
 	}
 }
-*///?}
+//?}

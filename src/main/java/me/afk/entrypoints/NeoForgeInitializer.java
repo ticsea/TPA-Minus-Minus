@@ -3,10 +3,11 @@
 // See LICENSE.md for details.
 
 //? if NEOFORGE {
-package me.afk.entrypoints;
+/*package me.afk.entrypoints;
 
 import me.afk.Tpamm;
 
+import me.afk.command.BackCommand;
 import me.afk.command.TpaCommand;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.*;
@@ -26,6 +27,7 @@ public class NeoForgeInitializer {
 		modLoadingContext.registerExtensionPoint(IConfigScreenFactory.class, () -> (mc, p) -> null);
 
 		eventBus.addListener(TpaCommand::onRegisterCommands);
+		eventBus.addListener(BackCommand::onRegisterCommands);
 	}
 }
-//?}
+*///?}
