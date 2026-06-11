@@ -28,3 +28,6 @@
 # Modding
 **/.architectury-transformer/
 **/run/
+
+# AFK
+local.properties
