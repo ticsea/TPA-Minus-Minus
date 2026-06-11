@@ -1,2 +1,1 @@
-Fix: let player can tp if in diff dim.
-Add: add back command.
+Fix: Fixed the issue where entering the world would crash.
