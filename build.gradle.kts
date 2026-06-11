@@ -258,7 +258,7 @@ if (localPropertiesFile.exists()) {
 }
 publishMods {
 	modLoaders.add(loader)
-	if (loader == "fabric") modLoaders.add("quilt")
+	if (loader == "fabric") //modLoaders.add("quilt")
 	if (loader == "forge" && stonecutter.eval(actualTargets.max(), ">=1.20.2")) modLoaders.add("neoforge")
 
 	val isDryRun = optional("publish.enabled")?.trim()?.lowercase() != "true"
@@ -288,10 +288,10 @@ publishMods {
 		actualTargets.forEach(minecraftVersions::add)
 
 		// Relations
-		requires("cloth-config")
-		if (loader == "fabric") {
-			optional("modmenu")
-		}
+//		requires("cloth-config")
+//		if (loader == "fabric") {
+//			optional("modmenu")
+//		}
 	}
 	if (isDryRun || !curseforgeToken.isNullOrBlank()) curseforge {
 		projectId = required("publish.curseforge.id")
@@ -300,10 +300,10 @@ publishMods {
 		changelogType = "markdown"
 
 		// Relations
-		requires("cloth-config")
-		if (loader == "fabric") {
-			optional("modmenu")
-		}
+//		requires("cloth-config")
+//		if (loader == "fabric") {
+//			optional("modmenu")
+//		}
 	}
 	// Only ran once even when chiseled.
 	if (isPrimaryBuild) {
