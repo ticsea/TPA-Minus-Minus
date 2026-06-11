@@ -22,7 +22,11 @@ public class Teleport {
 
         ServerPlayer target = EntityArgument.getPlayer(ctx, "target");
 
-        from.teleportTo(target.getX(), target.getY(), target.getZ());
+        double x = target.getX();
+        double y = target.getY();
+        double z = target.getZ();
+        ServerLevel level = (ServerLevel) target.level();
+        from.teleportTo(level, x, y, z, EnumSet.noneOf(RelativeMovement.class), from.getYRot(), from.getXRot());
 
         return 1;
     }
