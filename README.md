@@ -16,7 +16,8 @@
 - **TPA Command**: no need to be accepted by target player. it will teleport to player directly.
 > USAGE: ```/tpa <player>```
 
-- **Back**: Coming soon.
+- **Back Command**: can back to last death point.
+> USAGE: ```/back```
 
 ## AND
 * This mod modify from CameraOverhaul Mod.
