@@ -4,10 +4,10 @@
 <hr>
 <p align="center">A TPA Mod.</p>
 <p align="center">
-    <a href="https://modrinth.com/mod/athirdhand">
+    <a href="https://modrinth.com/mod/tpa-minus-minus">
         <img src="https://img.shields.io/modrinth/dt/yIykwRC9?label=Modrinth&logo=Modrinth&style=flat-square" alt="Modrinth Downloads">
     </a>
-    <a href="https://www.curseforge.com/minecraft/mc-mods/athirdhand">
+    <a href="https://www.curseforge.com/minecraft/mc-mods/tpa-minus-minus">
         <img src="https://img.shields.io/curseforge/dt/1568085?style=flat-square&logo=curseforge&label=CurseForge" alt="CurseForge Downloads">
     </a>
 </p>
