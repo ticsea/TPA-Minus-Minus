@@ -12,18 +12,18 @@ import net.minecraft.commands.Commands;
         //? if FABRIC {
 /*import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
         *///?} elif FORGE {
-/*import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-        *///?} elif NEOFORGE {
-import net.neoforged.bus.api.SubscribeEvent;
+        //?} elif NEOFORGE {
+/*import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-//?}
+*///?}
 
 public class TpaCommand {
 
     //? if NEOFORGE {
-    @SubscribeEvent
+    /*@SubscribeEvent
     public static void onRegisterCommands(RegisterCommandsEvent event) {
 
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
@@ -35,15 +35,15 @@ public class TpaCommand {
                         )
         );
     }
-    //?} else if FORGE {
-        /*@SubscribeEvent
+    *///?} else if FORGE {
+        @SubscribeEvent
         public static void onRegisterCommands(RegisterCommandsEvent event) {
 
             CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
 
             dispatcher.register(Commands.literal("tpa").then(Commands.argument("target", EntityArgument.player()).executes(Teleport::tp)));
         }
-    *///?} else if FABRIC {
+    //?} else if FABRIC {
 
     /*public static void register() {
 

@@ -5,13 +5,17 @@
 @file:OptIn(StonecutterExperimentalAPI::class)
 import org.gradle.internal.declarativedsl.parsing.parse
 import dev.kikugie.stonecutter.StonecutterExperimentalAPI
+import me.modmuss50.mpp.platforms.discord.LinkType
+import me.modmuss50.mpp.platforms.xyebbs.XyebbsApi
+import org.gradle.api.publish.maven.internal.publisher.MavenLocalPublisher
 import java.util.*
 
 plugins {
 	id("dev.kikugie.stonecutter")
 	id("xyz.wagyourtail.jvmdowngrader")
 	id("com.gradleup.shadow")
-	id("me.modmuss50.mod-publish-plugin")
+//	id("me.modmuss50.mod-publish-plugin")
+	id("me.afk.mod-publish-plugin") version "1.0.0"
 	// This plugin will choose the necessary loom plugin conditionally.
 	// Must exist in both settings.gradle.kts as well as build.gradle.kts.
     id("dev.kikugie.loom-back-compat")
@@ -22,6 +26,7 @@ fun Project.required(p: String) = property(p).toString()
 fun Project.optional(p: String) = findProperty(p)?.toString()
 
 repositories {
+	mavenLocal()
 	// Fabric
 	maven("https://maven.fabricmc.net/")
 	// NeoForge
@@ -277,12 +282,42 @@ publishMods {
 
 	val modrinthToken = localProperties.getProperty("publish.modrinth.token", "")
 	val curseforgeToken = localProperties.getProperty("publish.curseforge.token", "")
+	val xyebbsApiKey = localProperties.getProperty("publish.xyebbs.key", "")
+	val xyebbsApiSecret = localProperties.getProperty("publish.xyebbs.secret", "")
+	val xyebbsId = localProperties.getProperty("publish.xyebbs.id", "")
 	val githubToken = localProperties.getProperty("publish.github.token", "")
 	val discordWebhook = localProperties.getProperty("publish.discord.webhook${if (dryRun.get()) "_dry" else ""}", "")
 
 	fun filterFormat(str: String) = str.replace("{{version}}", versionNumbers).replace("{{changelog}}", versionChangelog)
 
-	if (dryRun.get() || !modrinthToken.isNullOrBlank()) modrinth {
+	if (!xyebbsApiKey.isNullOrBlank() && !xyebbsApiSecret.isNullOrBlank() && !xyebbsId.isNullOrBlank()) xyebbs {
+		accessToken = "xye"
+		xyeKey = xyebbsApiKey
+		xyeSecret = xyebbsApiSecret
+		projectId = xyebbsId
+
+		label = required("mod.version")
+		environmentType = "SERVER"
+		orderNumber = 0
+		actualTargets.forEach(minecraftVersions::add)
+
+		customLink = listOf(
+			XyebbsApi.CustomLinkItem(
+				"CF",
+				"https://www.curseforge.com/minecraft/mc-mods/tpa-minus-minus",
+				"CursForge",
+				0
+			),
+			XyebbsApi.CustomLinkItem(
+				"MR",
+				"https://modrinth.com/mod/tpa-minus-minus",
+				"Modrinth",
+				1
+			)
+		)
+	}
+
+	/*if (dryRun.get() || !modrinthToken.isNullOrBlank()) modrinth {
 		projectId = required("publish.modrinth.id")
 		accessToken = modrinthToken
 		actualTargets.forEach(minecraftVersions::add)
@@ -304,7 +339,7 @@ publishMods {
 //		if (loader == "fabric") {
 //			optional("modmenu")
 //		}
-	}
+	}*/
 	// Only ran once even when chiseled.
 	if (isPrimaryBuild) {
 		if (isDryRun || !githubToken.isNullOrBlank()) github {
